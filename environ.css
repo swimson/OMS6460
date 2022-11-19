@@ -1,0 +1,54 @@
+.env-cell {
+    border: 1px solid #f5f4f4;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+}
+
+#env-agent {
+    width: 45px;
+    height: 45px;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.env-obj{
+    width: 31px;
+    height: 31px;
+    margin-top: -2px;
+    margin-left: -2px;
+}
+
+#env-agent{
+    transition-property: all;
+    transition-duration: 150ms;
+}
+
+#env-agent[dir="W"]{
+    transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+}
+
+#env-agent[dir="S"]{
+    transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}
+
+#env-agent[dir="E"]{
+    transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+}
+
+.env-obj-brick{
+    color: #920101;
+}
+
+.env-obj-battery{
+    color: #7c9201;
+}
