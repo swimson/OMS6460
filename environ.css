@@ -1,5 +1,5 @@
 .env-cell {
-    border: 1px solid #f5f4f4;
+    border: 1px dotted #f2f2f2;
     height: 30px;
     width: 30px;
     display: inline-block;
@@ -7,9 +7,10 @@
 
 #env-agent {
     width: 45px;
-    height: 45px;
-    margin-top: -10px;
+    height: 35px;
+    margin-top: -5px;
     margin-left: -10px;
+    fill: #bb1111;
 }
 
 .env-obj{
@@ -24,31 +25,44 @@
     transition-duration: 150ms;
 }
 
-#env-agent[dir="W"]{
-    transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-}
+/*#env-agent[dir="W"]{*/
+/*    transform: rotate(270deg);*/
+/*    -moz-transform: rotate(270deg);*/
+/*    -webkit-transform: rotate(270deg);*/
+/*    -ms-transform: rotate(270deg);*/
+/*}*/
 
-#env-agent[dir="S"]{
-    transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-}
+/*#env-agent[dir="S"]{*/
+/*    transform: rotate(180deg);*/
+/*    -moz-transform: rotate(180deg);*/
+/*    -webkit-transform: rotate(180deg);*/
+/*    -ms-transform: rotate(180deg);*/
+/*}*/
 
-#env-agent[dir="E"]{
-    transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-}
+/*#env-agent[dir="E"]{*/
+/*    transform: rotate(90deg);*/
+/*    -moz-transform: rotate(90deg);*/
+/*    -webkit-transform: rotate(90deg);*/
+/*    -ms-transform: rotate(90deg);*/
+/*}*/
 
 .env-obj-brick{
-    color: #920101;
+    color: #595959;
 }
 
 .env-obj-battery{
-    color: #7c9201;
+    color: #e7bc08;;
+}
+
+.env-obj-flag{
+    fill: #00c2ff;
+}
+
+#history{
+    width: 400px;
+    height: 100px;
+}
+
+body{
+    overflow-y: hidden;
 }

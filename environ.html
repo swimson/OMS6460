@@ -1,26 +1,34 @@
 <html>
 <head>
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
     <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+            integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
 
     <link href="environ.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Environment</h1>
+<!--<h1>Environment</h1>-->
+
 
 <div id="environ"></div>
-    <p>
-        <label for="cum_reward" >Cumulative Reward</label><input type="text" name="cum_reward" id="cum_reward">
-    </p>
-
+<div id="hist_segments"></div>
+<p>
+    <label for="cum_reward">Cumulative Reward</label><input type="text" name="cum_reward" id="cum_reward">
+</p>
+<p>
+    <textarea id="history"></textarea>
+</p>
 </body>
 <footer>
     <script src="common.js"></script>
     <script src="environ.js"></script>
     <script src="agent.js"></script>
+    <script src="q.js"></script>
+    <script src="policy.js"></script>
 </footer>
 </html>

@@ -1,70 +1,133 @@
+let actions = ['N', 'S', 'E', 'W']
+
 let agent = {
     pos: {
-        x: 7,
-        y: 5,
+        x: 28,
+        y: 11,
     },
-    dir: 'S',
+    action: 'S',
     hist: [],
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-rocket" viewBox="0 0 16 16">\n' +
-        '  <path d="M8 8c.828 0 1.5-.895 1.5-2S8.828 4 8 4s-1.5.895-1.5 2S7.172 8 8 8Z"/>\n' +
-        '  <path d="M11.953 8.81c-.195-3.388-.968-5.507-1.777-6.819C9.707 1.233 9.23.751 8.857.454a3.495 3.495 0 0 0-.463-.315A2.19 2.19 0 0 0 8.25.064.546.546 0 0 0 8 0a.549.549 0 0 0-.266.073 2.312 2.312 0 0 0-.142.08 3.67 3.67 0 0 0-.459.33c-.37.308-.844.803-1.31 1.57-.805 1.322-1.577 3.433-1.774 6.756l-1.497 1.826-.004.005A2.5 2.5 0 0 0 2 12.202V15.5a.5.5 0 0 0 .9.3l1.125-1.5c.166-.222.42-.4.752-.57.214-.108.414-.192.625-.281l.198-.084c.7.428 1.55.635 2.4.635.85 0 1.7-.207 2.4-.635.067.03.132.056.196.083.213.09.413.174.627.282.332.17.586.348.752.57l1.125 1.5a.5.5 0 0 0 .9-.3v-3.298a2.5 2.5 0 0 0-.548-1.562l-1.499-1.83ZM12 10.445v.055c0 .866-.284 1.585-.75 2.14.146.064.292.13.425.199.39.197.8.46 1.1.86L13 14v-1.798a1.5 1.5 0 0 0-.327-.935L12 10.445ZM4.75 12.64C4.284 12.085 4 11.366 4 10.5v-.054l-.673.82a1.5 1.5 0 0 0-.327.936V14l.225-.3c.3-.4.71-.664 1.1-.861.133-.068.279-.135.425-.199ZM8.009 1.073c.063.04.14.094.226.163.284.226.683.621 1.09 1.28C10.137 3.836 11 6.237 11 10.5c0 .858-.374 1.48-.943 1.893C9.517 12.786 8.781 13 8 13c-.781 0-1.517-.214-2.057-.607C5.373 11.979 5 11.358 5 10.5c0-4.182.86-6.586 1.677-7.928.409-.67.81-1.082 1.096-1.32.09-.076.17-.135.236-.18Z"/>\n' +
-        '  <path d="M9.479 14.361c-.48.093-.98.139-1.479.139-.5 0-.999-.046-1.479-.139L7.6 15.8a.5.5 0 0 0 .8 0l1.079-1.439Z"/>\n' +
-        '</svg>',
+    icon: '<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"width="45.342px" height="45.342px" viewBox="0 0 45.342 45.342" style="enable-background:new 0 0 45.342 45.342;"xml:space="preserve"> <g> <path d="M40.462,19.193H39.13v-1.872c0-3.021-2.476-5.458-5.496-5.458h-8.975v-4.49c1.18-0.683,1.973-1.959,1.973-3.423c0-2.182-1.771-3.95-3.951-3.95c-2.183,0-3.963,1.769-3.963,3.95c0,1.464,0.785,2.74,1.965,3.423v4.49h-8.961c-3.021,0-5.448,2.437-5.448,5.458v1.872H4.893c-1.701,0-3.091,1.407-3.091,3.108v6.653c0,1.7,1.39,3.095,3.091,3.095h1.381v1.887c0,3.021,2.427,5.442,5.448,5.442h2.564v2.884c0,1.701,1.393,3.08,3.094,3.08h10.596c1.701,0,3.08-1.379,3.08-3.08v-2.883h2.578c3.021,0,5.496-2.422,5.496-5.443V32.05h1.332c1.701,0,3.078-1.394,3.078-3.095v-6.653C43.54,20.601,42.165,19.193,40.462,19.193zM10.681,21.271c0-1.999,1.621-3.618,3.619-3.618c1.998,0,3.617,1.619,3.617,3.618c0,1.999-1.619,3.618-3.617,3.618C12.302,24.889,10.681,23.27,10.681,21.271z M27.606,34.473H17.75c-1.633,0-2.957-1.316-2.957-2.951c0-1.633,1.324-2.949,2.957-2.949h9.857c1.633,0,2.957,1.316,2.957,2.949S29.239,34.473,27.606,34.473z M31.056,24.889c-1.998,0-3.618-1.619-3.618-3.618c0-1.999,1.62-3.618,3.618-3.618c1.999,0,3.619,1.619,3.619,3.618C34.675,23.27,33.055,24.889,31.056,24.889z"/> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> \</g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>',
     cum_reward: 0,
+    immovable: false
 }
 
 function render_agent() {
     $('#env-agent').remove()
     $('#' + gen_cell_id(agent.pos.x, agent.pos.y)).html(agent.icon)
     $('#' + gen_cell_id(agent.pos.x, agent.pos.y) + ' svg').attr('id', "env-agent")
-    update_agent()
 }
 
-function update_agent() {
-    $('#env-agent').attr('dir', agent.dir)
+function append_history(x, y, action, reward) {
+    let hist_item = {x: x, y: y, action: action, reward}
+    agent.hist.push(hist_item)
+    const textarea = document.getElementById('history');
+    textarea.value = JSON.stringify(hist_item) + '\n' + textarea.value;
 }
 
-function move_agent(dir) {
-    agent.hist.push({x: agent.pos.x, y: agent.pos.y, dir: agent.dir})
-    agent.dir = dir
-    update_agent()
-    setTimeout(function () {
-        let new_x = agent.pos.x
-        let new_y = agent.pos.y
-        switch (dir) {
-            case 'N':
-                new_y = agent.pos.y + 1
-                break
-            case 'S':
-                new_y = agent.pos.y - 1
-                break
-            case 'E':
-                new_x = agent.pos.x + 1
-                break
-            case 'W':
-                new_x = agent.pos.x - 1
-                break
+function render_history() {
+    $('.hist_seg_final').remove()
+    print_hist_line(agent.hist[agent.hist.length-2], false)
+    print_hist_line(agent.hist[agent.hist.length-1], true)
+}
+
+function print_hist_line(item, final) {
+    let el = document.getElementById(gen_cell_id(item.x, item.y))
+    let el_bb = el.getBoundingClientRect()
+
+    let length = environ.cell_size
+    if (final) {
+        length = environ.cell_size / 2
+    }
+
+    let x = 0, y = 0, angle = 0
+    let x_center = (el_bb.left + el_bb.right) / 2
+    let y_center = (el_bb.top + el_bb.bottom) / 2
+
+    if (item.action === 'S') {
+        x = x_center - (length / 2)
+        y = y_center + (length / 2)/**/
+        angle = 90
+    } else if (item.action === 'W') {
+        x = x_center - (length)
+        y = y_center
+        angle = 0
+    } else if (item.action === 'E') {
+        x = x_center
+        y = y_center
+        angle = 0
+    } else if (item.action === 'N') {
+        x = x_center - (length / 2)
+        y = y_center - (length / 2)
+        angle = 90
+    }
+
+    var line = document.createElement("div");
+    var styles = 'border: 1px solid #bb1111;; '
+        + 'width: ' + length + 'px; '
+        + 'height: 0px; '
+        + '-moz-transform: rotate(' + angle + 'deg); '
+        + '-webkit-transform: rotate(' + angle + 'deg); '
+        + '-o-transform: rotate(' + angle + 'deg); '
+        + '-ms-transform: rotate(' + angle + 'deg); '
+        + 'position: absolute; '
+        + 'top: ' + y + 'px; '
+        + 'left: ' + x + 'px; ';
+    line.setAttribute('style', styles);
+    line.classList.add('hist_seg')
+    if (final) {
+        line.classList.add('hist_seg_final')
+    }
+    document.body.appendChild(line);
+}
+
+function move_agent(action) {
+    if (agent.immovable) {
+        return
+    }
+
+    // save for history
+    hist_x = agent.pos.x
+    hist_y = agent.pos.y
+    hist_action = action
+
+    // start moving agent
+    agent.action = action
+    let new_x = agent.pos.x
+    let new_y = agent.pos.y
+    switch (action) {
+        case 'N':
+            new_y = agent.pos.y + 1
+            break
+        case 'S':
+            new_y = agent.pos.y - 1
+            break
+        case 'E':
+            new_x = agent.pos.x + 1
+            break
+        case 'W':
+            new_x = agent.pos.x - 1
+            break
+    }
+
+    // check if can move to the new cell
+    obj = get_obj_at_cell(new_x, new_y)
+    if (obj.passable) {
+        agent.pos.x = new_x
+        agent.pos.y = new_y
+    }
+    if (obj.goal) {
+        agent.immovable = true
+        if (typeof timer !== 'undefined') {
+            clearInterval(timer)
         }
+    }
 
-        // check if can move to the new cell
-        obj = get_obj_at_cell(new_x, new_y)
-        if (obj.passable) {
-            agent.pos.x = new_x
-            agent.pos.y = new_y
-        }
-        agent.cum_reward = agent.cum_reward + obj.reward
-        $('#cum_reward').val(agent.cum_reward)
-
-        render_agent(agent)
-        setTimeout(random_motion, 200)
-    }, 200)
+    append_history(hist_x, hist_y, action, obj.reward)
+    agent.cum_reward = agent.cum_reward + obj.reward
+    $('#cum_reward').val(agent.cum_reward)
+    render_history()
+    render_agent()
 }
 
-function random_motion() {
-    let items = ['N', 'S', 'E', 'W']
-    let dir = items[Math.floor(Math.random() * items.length)];
-    move_agent(dir)
-}
-
-render_agent(agent)
-random_motion()
+render_agent()
