@@ -14,13 +14,9 @@
     <link href="environ.css" rel="stylesheet">
 </head>
 <body>
-<!--<h1>Environment</h1>-->
-
-
 <div id="environ"></div>
-<div id="hist_segments"></div>
 <p>
-    <label for="cum_reward">Cumulative Reward</label><input type="text" name="cum_reward" id="cum_reward">
+    <textarea id="q_learning" style="display:none"></textarea>
 </p>
 </body>
 <footer>
@@ -31,11 +27,11 @@
     <script src="policy.js"></script>
     <script src="visualization.js"></script>
     <script>
-        init_q()
+        init_q('random')
         // visualize_q()
         init_agent()
         render_agent()
-        timer = setInterval(q_learning_policy, 10)
+        timer = setInterval(q_learning_policy, 500)
     </script>
 </footer>
 </html>

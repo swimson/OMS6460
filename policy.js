@@ -33,6 +33,8 @@ function choose_best_action(state){
 function save_policy_state(){
     // save Q table
     console.log('SAVING Q table...')
-    Q_json = JSON.stringify(Q)
+    let Q_json = JSON.stringify(Q)
+    let el = document.getElementById('q_learning')
+    el.value = Q_json
     window.localStorage.setItem('q_learning', Q_json)
 }

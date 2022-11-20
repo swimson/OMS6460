@@ -135,6 +135,9 @@ function execute_action(action) {
     if (props.goal) {
         execute_found_goal()
     }
+    if (props.icon === 'brick') {
+        update_environ(new_x, new_y, 'fire')
+    }
 
     append_history(hist_x, hist_y, action, props.reward)
     agent.cum_reward = agent.cum_reward + props.reward

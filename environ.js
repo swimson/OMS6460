@@ -201,23 +201,40 @@ let environ = {
     },
     rewards: {
         empty: -1,
-        brick: -10000,
+        brick: -1000,
         battery: 10,
         flag: 1000000000
     }
 }
 
 function get_cell_props(x, y) {
-    let ret = {reward: environ.rewards.empty, passable: true, goal: false, empty: true}
+    let ret = {reward: environ.rewards.empty, passable: true, goal: false, empty: true, icon: null}
     environ.objects.forEach((item) => {
         if (item.x === x && item.y === y) {
-            ret = {reward: environ.rewards[item.icon], passable: item.passable, goal: item.goal, empty: false}
+            ret = {
+                reward: environ.rewards[item.icon],
+                passable: item.passable,
+                goal: item.goal,
+                empty: false,
+                icon: item.icon
+            }
         }
     })
     return ret
 }
 
-function render_environ(environ) {
+function update_environ(x, y, icon) {
+    for (let i = 0; i < environ.objects.length; i++) {
+        let item  = environ.objects[i]
+        if(item.x === x && item.y === y){
+            environ.objects[i].icon = icon
+            $('#' + get_cell_id(item.x, item.y)).html(environ.icons[item.icon])
+            return
+        }
+    }
+}
+
+function render_environ() {
     let html = '<table>'
     for (let y = environ.height; y > 0; y--) {
         html = html + '<tr>'
