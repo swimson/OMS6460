@@ -5,9 +5,20 @@ function get_state(x, y) {
 }
 
 function init_q() {
+    if(window.localStorage.getItem('q_learning') !== null){
+        Q = JSON.parse(window.localStorage.getItem('q_learning'))
+        return
+    }
     for (y = 1; y <= environ.height; y++) {
         for (let x = 1; x <= environ.width; x++) {
-            Q[get_state(x, y)] = Math.random()
+            for (let i = 0; i < agent.actions.length; i++) {
+                let action = agent.actions[i]
+                let state = get_state(x,y)
+                if(Q[state] === undefined){
+                    Q[state] = {}
+                }
+                Q[get_state(x, y)][action] = Math.random()
+            }
         }
     }
 }

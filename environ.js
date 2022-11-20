@@ -3,12 +3,12 @@ let environ = {
     width: 30,
     cell_size: 30,
     objects: [
-        // batteries
-        {x: 7, y: 9,  icon: 'battery', passable: true, goal: false},
-        {x: 3, y: 3,  icon: 'battery', passable: true, goal: false},
-        {x: 8, y: 2,  icon: 'battery', passable: true, goal: false},
-        {x: 16, y: 3,  icon: 'battery', passable: true, goal: false},
-        {x: 20, y: 7,  icon: 'battery', passable: true, goal: false},
+        // // batteries
+        // {x: 7, y: 9,  icon: 'battery', passable: true, goal: false},
+        // {x: 3, y: 3,  icon: 'battery', passable: true, goal: false},
+        // {x: 8, y: 2,  icon: 'battery', passable: true, goal: false},
+        // {x: 16, y: 3,  icon: 'battery', passable: true, goal: false},
+        // {x: 20, y: 7,  icon: 'battery', passable: true, goal: false},
 
         // flags
         {x: 28, y: 13,  icon: 'flag', passable: true, goal: true},
@@ -198,14 +198,15 @@ let environ = {
         flag: '<?xml version="1.0" encoding="iso-8859-1"?><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300.344 300.344" style="enable-background:new 0 0 300.344 300.344;" xml:space="preserve"><g><path d="M289.286,28.36c-6.773-3.386-14.885-2.655-20.945,1.892c-23.387,17.547-46.014,10.395-80.992-2.728c-34.281-12.859-76.942-28.861-119.047,2.728c-5.034,3.777-7.997,9.704-7.997,15.998v119.112c0,7.576,4.281,14.502,11.058,17.89s14.887,2.654,20.945-1.892c23.387-17.547,46.014-10.395,80.992,2.728c19.513,7.319,41.739,15.657,65.034,15.657c17.631,0,35.874-4.776,54.013-18.385c5.034-3.777,7.997-9.704,7.997-15.998V46.25C300.344,38.674,296.063,31.748,289.286,28.36z"/><path d="M20,7.819c-11.046,0-20,8.954-20,20v244.705c0,11.046,8.954,20,20,20s20-8.954,20-20V27.819C40,16.773,31.046,7.819,20,7.819z"/></g></svg>',
     },
     rewards: {
-        brick: -10,
+        empty: -1,
+        brick: -10000,
         battery: 10,
-        flag: 100
+        flag: 1000000000
     }
 }
 
 function get_obj_at_cell(x, y) {
-    let ret = {reward: -1, passable: true, goal: false}
+    let ret = {reward: environ.rewards.empty, passable: true, goal: false}
     environ.objects.forEach((item) => {
         if (item.x === x && item.y === y) {
             ret = {reward: environ.rewards[item.icon], passable: item.passable, goal: item.goal}
