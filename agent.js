@@ -12,17 +12,16 @@ let agent = {
 
 function init_agent() {
     let itter = 0
-    let found = false
+    let found_empty = false
     let random_x = 28
     let random_y = 10
-    let obj = null
-    while (found === false && itter < 1000) {
+    while (found_empty === false && itter < 1000) {
         random_x = Math.floor(Math.random() * environ.width) + 1;
         random_y = Math.floor(Math.random() * environ.height) + 1;
 
-        obj = get_obj_at_cell(random_x, random_y)
-        if (obj.reward === environ.rewards.empty) {
-            found = true
+        let props = get_cell_props(random_x, random_y)
+        if (props.empty) {
+            found_empty = true
         }
         itter = itter + 1
     }
@@ -32,8 +31,8 @@ function init_agent() {
 
 function render_agent() {
     $('#env-agent').remove()
-    $('#' + gen_cell_id(agent.pos.x, agent.pos.y)).html(agent.icon)
-    $('#' + gen_cell_id(agent.pos.x, agent.pos.y) + ' svg').attr('id', "env-agent")
+    $('#' + get_cell_id(agent.pos.x, agent.pos.y)).html(agent.icon)
+    $('#' + get_cell_id(agent.pos.x, agent.pos.y) + ' svg').attr('id', "env-agent")
 }
 
 function append_history(x, y, action, reward) {
@@ -54,10 +53,7 @@ function render_history() {
 }
 
 function print_hist_line(item, final) {
-    let el = document.getElementById(gen_cell_id(item.x, item.y))
-    if (el === null) {
-        return
-    }
+    let el = document.getElementById(get_cell_id(item.x, item.y))
     let el_bb = el.getBoundingClientRect()
 
     let length = environ.cell_size
@@ -110,7 +106,6 @@ function execute_action(action) {
     // save for history
     let hist_x = agent.pos.x
     let hist_y = agent.pos.y
-    let hist_action = action
 
     // start moving agent
     agent.action = action
@@ -132,21 +127,21 @@ function execute_action(action) {
     }
 
     // check if can move to the new cell
-    obj = get_obj_at_cell(new_x, new_y)
-    if (obj.passable) {
+    let props = get_cell_props(new_x, new_y)
+    if (props.passable) {
         agent.pos.x = new_x
         agent.pos.y = new_y
     }
-    if (obj.goal) {
+    if (props.goal) {
         execute_found_goal()
     }
 
-    append_history(hist_x, hist_y, action, obj.reward)
-    agent.cum_reward = agent.cum_reward + obj.reward
+    append_history(hist_x, hist_y, action, props.reward)
+    agent.cum_reward = agent.cum_reward + props.reward
     $('#cum_reward').val(agent.cum_reward)
     render_history()
     render_agent()
-    return obj.reward
+    return props.reward
 }
 
 function execute_found_goal() {
@@ -157,19 +152,7 @@ function execute_found_goal() {
     // save policy state
     save_policy_state()
 
-    // let epocs = window.localStorage.getItem('epocs')
-    // if(epocs === null){
-    //     epocs = []
-    // } else {
-    //     epocs = JSON.parse(epocs)
-    // }
-    // epocs.push(agent.hist.length)
-    // window.localStorage.setItem('epocs', JSON.stringify(epocs))
-
     setTimeout(() => {
         location.reload()
     }, 200)
 }
-
-init_agent()
-render_agent()

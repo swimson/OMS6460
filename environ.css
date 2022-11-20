@@ -13,51 +13,62 @@
     fill: #bb1111;
 }
 
-.env-obj{
+.env-obj {
     width: 31px;
     height: 31px;
     margin-top: -2px;
     margin-left: -2px;
 }
 
-#env-agent{
+#env-agent {
     transition-property: all;
     transition-duration: 150ms;
 }
 
-/*#env-agent[dir="W"]{*/
-/*    transform: rotate(270deg);*/
-/*    -moz-transform: rotate(270deg);*/
-/*    -webkit-transform: rotate(270deg);*/
-/*    -ms-transform: rotate(270deg);*/
-/*}*/
-
-/*#env-agent[dir="S"]{*/
-/*    transform: rotate(180deg);*/
-/*    -moz-transform: rotate(180deg);*/
-/*    -webkit-transform: rotate(180deg);*/
-/*    -ms-transform: rotate(180deg);*/
-/*}*/
-
-/*#env-agent[dir="E"]{*/
-/*    transform: rotate(90deg);*/
-/*    -moz-transform: rotate(90deg);*/
-/*    -webkit-transform: rotate(90deg);*/
-/*    -ms-transform: rotate(90deg);*/
-/*}*/
-
-.env-obj-brick{
+.env-obj-brick {
     color: #595959;
 }
 
-.env-obj-battery{
+.env-obj-battery {
     color: #e7bc08;;
 }
 
-.env-obj-flag{
+.env-obj-flag {
     fill: #00c2ff;
 }
 
-body{
+.env-vis {
+    fill: #af9ea4
+}
+
+.env-vis-action-E {
+    transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+}
+
+.env-vis-action-W {
+    transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+}
+
+.env-vis-action-N {
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+}
+
+.env-vis-action-S {
+    transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}
+
+body {
     overflow-y: hidden;
 }

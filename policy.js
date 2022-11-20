@@ -36,7 +36,3 @@ function save_policy_state(){
     Q_json = JSON.stringify(Q)
     window.localStorage.setItem('q_learning', Q_json)
 }
-
-//timer = setInterval(q_learning_policy, 10)
-
-// q_learning_policy()
