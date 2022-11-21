@@ -8,13 +8,16 @@ function q_learning_policy(){
     let best_action = choose_best_action(prev_state)['action']
     let reward = execute_action(best_action)
     let cur_state = get_state(agent.pos.x, agent.pos.y)
+    update_q_table(prev_state, cur_state, best_action, reward)
+}
+
+function update_q_table(prev_state, cur_state, action, reward){
     let alpha = .1
     let gamma = .6
-    let epsilon = .1
-
-    let prev_q = Q[prev_state][best_action]
+    let prev_q = Q[prev_state][action]
     let next_max = choose_best_action(cur_state)['q']
-    Q[prev_state][best_action] = (1 - alpha) * prev_q + alpha * (reward + gamma * next_max)
+    Q[prev_state][action] = (1 - alpha) * prev_q + alpha * (reward + gamma * next_max)
+    return {'prev_q': prev_q, 'updated_q': Q[prev_state][action]}
 }
 
 function choose_best_action(state){
@@ -34,7 +37,7 @@ function save_policy_state(){
     // save Q table
     console.log('SAVING Q table...')
     let Q_json = JSON.stringify(Q)
-    let el = document.getElementById('q_learning')
-    el.value = Q_json
+    // let el = document.getElementById('q_learning')
+    // el.value = Q_json
     window.localStorage.setItem('q_learning', Q_json)
 }

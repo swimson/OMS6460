@@ -1,0 +1,61 @@
+<html>
+<head>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <!-- Jquery -->
+    <script
+            src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+            crossorigin="anonymous"></script>
+
+    <link href="environ.css" rel="stylesheet">
+</head>
+<body>
+<div id="environ"></div>
+<div id="controls">
+    <input type="button" value="Start" id="start">
+    <input type="button" value="Stop" id="stop">
+    |
+    <input type="button" value="<< Slower" id="slower">
+    <input type="button" value="Faster >>" id="faster">
+    |
+    <input type="text" value="Epoc = 1">
+    <input type="button" value="Jump Back" id="jump_back">
+    <input type="button" value="Jump Ahead" id="jump_ahead">
+    |
+    <input type="button" value="Be the robot" id="participate">
+    <input type="button" value="Visualize" id="visualize">
+</div>
+<p>
+    <textarea id="q_learning" style="display:none"></textarea>
+</p>
+</body>
+<footer>
+    <script src="common.js"></script>
+    <script src="environ.js"></script>
+    <script src="agent.js"></script>
+    <script src="q.js"></script>
+    <script src="policy.js"></script>
+    <script src="visualization.js"></script>
+    <script>
+        render_environ(environ)
+        init_q('random')
+        // visualize_q()
+        init_agent()
+        render_agent()
+        $('#faster').click(function () {
+            location.href='step2.html'
+        })
+        timer = setInterval(q_learning_policy, 500)
+        $('#start').click(function () {
+            timer = setInterval(q_learning_policy, 500)
+        })
+        $('#stop').click(function () {
+            clearInterval(timer)
+        })
+    </script>
+</footer>
+</html>

@@ -1,0 +1,45 @@
+#agent_view{
+    margin: 20px;
+}
+
+#agent_view table input {
+    margin: 5px;
+}
+
+#agent_view table td {
+    text-align: center;
+}
+
+.best_action{
+    font-weight: bold;
+    color:green;
+    font-size: 20px;
+}
+
+.not_best_action{
+    color: lightgrey;
+    font-size: 20px;
+}
+
+#agent_view_history{
+    resize: vertical;
+    width: 500px;
+    height: 200px;
+    margin:20px;
+}
+
+body{
+    padding: 50px;
+}
+
+#reward_received{
+    margin-top: 300px;
+}
+
+#reward_explanation{
+    color: #bb1111;
+}
+
+#agent_view_visualize{
+    display:none;
+}

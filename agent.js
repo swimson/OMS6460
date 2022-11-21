@@ -1,4 +1,7 @@
 let agent = {
+    render: true,
+    render_hist: true,
+    refresh_find_goal: true,
     actions: ['N', 'S', 'E', 'W'],
     pos: {
         x: 28,
@@ -30,6 +33,9 @@ function init_agent() {
 }
 
 function render_agent() {
+    if (agent.render === false) {
+        return
+    }
     $('#env-agent').remove()
     $('#' + get_cell_id(agent.pos.x, agent.pos.y)).html(agent.icon)
     $('#' + get_cell_id(agent.pos.x, agent.pos.y) + ' svg').attr('id', "env-agent")
@@ -44,6 +50,9 @@ function append_history(x, y, action, reward) {
 }
 
 function render_history() {
+    if (agent.render_hist === false) {
+        return
+    }
     $('.hist_seg_final').remove()
     if (agent.hist.length > 1) {
         print_hist_line(agent.hist[agent.hist.length - 2], false)
@@ -155,7 +164,9 @@ function execute_found_goal() {
     // save policy state
     save_policy_state()
 
-    setTimeout(() => {
-        location.reload()
-    }, 200)
+    if(agent.refresh_find_goal){
+        setTimeout(() => {
+            location.reload()
+        }, 200)
+    }
 }

@@ -1,4 +1,5 @@
 let environ = {
+    render: true,
     height: 15,
     width: 30,
     cell_size: 30,
@@ -235,6 +236,9 @@ function update_environ(x, y, icon) {
 }
 
 function render_environ() {
+    if(environ.render === false){
+        return
+    }
     let html = '<table>'
     for (let y = environ.height; y > 0; y--) {
         html = html + '<tr>'
@@ -249,5 +253,3 @@ function render_environ() {
         $('#' + get_cell_id(item.x, item.y) + ' svg').addClass('env-obj').addClass('env-obj-' + item.icon)
     });
 }
-
-render_environ(environ)
