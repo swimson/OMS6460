@@ -4077,28 +4077,30 @@ function init_q(mode) {
     } else {
         if (window.localStorage.getItem('q_learning') !== null) {
             Q = JSON.parse(window.localStorage.getItem('q_learning'))
+        } else {
+            Q = Q_random
         }
     }
-    // if (mode === 'random') {
-    //     for (y = 1; y <= environ.height; y++) {
-    //         for (let x = 1; x <= environ.width; x++) {
-    //             for (let i = 0; i < agent.actions.length; i++) {
-    //                 let action = agent.actions[i]
-    //                 let state = get_state(x, y)
-    //                 if (Q[state] === undefined) {
-    //                     Q[state] = {}
-    //                 }
-    //                 Q[get_state(x, y)][action] = Math.random()
-    //             }
-    //         }
-    //     }
-    // } else if (mode === 'optimum') {
-    //     Q = Q_optimum
-    // } else {
-    //     if (window.localStorage.getItem('q_learning') !== null) {
-    //         Q = JSON.parse(window.localStorage.getItem('q_learning'))
-    //         return
-    //     }
-    // }
+    if (mode === 'random') {
+        for (y = 1; y <= environ.height; y++) {
+            for (let x = 1; x <= environ.width; x++) {
+                for (let i = 0; i < agent.actions.length; i++) {
+                    let action = agent.actions[i]
+                    let state = get_state(x, y)
+                    if (Q[state] === undefined) {
+                        Q[state] = {}
+                    }
+                    Q[get_state(x, y)][action] = Math.random()
+                }
+            }
+        }
+    } else if (mode === 'optimum') {
+        Q = Q_optimum
+    } else {
+        if (window.localStorage.getItem('q_learning') !== null) {
+            Q = JSON.parse(window.localStorage.getItem('q_learning'))
+            return
+        }
+    }
     save_policy_state()
 }
