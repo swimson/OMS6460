@@ -1,14 +1,27 @@
 function random_motion_policy() {
-    let action = agent.actions[Math.floor(Math.random() * agent.actions.length)];
-    execute_action(action)
+    return agent.actions[Math.floor(Math.random() * agent.actions.length)];
 }
 
 function q_learning_policy() {
     let prev_state = get_state(agent.pos.x, agent.pos.y)
-    let best_action = choose_best_action(prev_state)['action']
-    let reward = execute_action(best_action)
+    let action = choose_best_action(prev_state)['action']
+    if (agent.random === true) {
+        let epoch = window.localStorage.getItem('q_learning_epoch')
+        if (epoch == null) {
+            epoch = 1
+        }
+        let r = (1 - epoch / 5000) * .5
+        if (epoch <= 5000 && Math.random() < r) {
+            if (epoch % 20 === 0) {
+                console.log(r)
+            }
+            action = random_motion_policy()
+        }
+    }
+
+    let reward = execute_action(action)
     let cur_state = get_state(agent.pos.x, agent.pos.y)
-    update_q_table(prev_state, cur_state, best_action, reward)
+    update_q_table(prev_state, cur_state, action, reward)
 }
 
 function update_q_table(prev_state, cur_state, action, reward) {
@@ -40,11 +53,11 @@ function save_policy_state() {
     // let el = document.getElementById('q_learning')
     // el.value = Q_json
     let start_time = window.localStorage.getItem('q_learning_start')
-    if(start_time === null){
+    if (start_time === null) {
         start_time = Date.now()
-         window.localStorage.setItem('q_learning_start', start_time)
+        window.localStorage.setItem('q_learning_start', start_time)
     }
-    console.log('ELAPSED TIME = '+(Date.now() - start_time)/1000/3600)
+    console.log('ELAPSED TIME = ' + (Date.now() - start_time) / 1000 / 3600)
     let epoch = window.localStorage.getItem('q_learning_epoch')
     if (epoch == null) {
         epoch = 1
@@ -53,16 +66,13 @@ function save_policy_state() {
     console.log('EPOCH = ' + epoch)
     window.localStorage.setItem('q_learning', Q_json)
     window.localStorage.setItem('q_learning_epoch', epoch)
-    if(epoch < 5){
-        window.localStorage.setItem('q_learning_' + epoch, Q_json)
-    }
-    if(epoch < 10 && epoch % 10 === 0){
+    if (epoch < 5) {
         window.localStorage.setItem('q_learning_' + epoch, Q_json)
     }
     if (epoch < 1000 && epoch % 100 === 0) {
         window.localStorage.setItem('q_learning_' + epoch, Q_json)
     }
-    if (epoch > 1000 && epoch % 250 === 0) {
+    if (epoch > 1000 && epoch % 1000 === 0) {
         window.localStorage.setItem('q_learning_' + epoch, Q_json)
     }
 }
