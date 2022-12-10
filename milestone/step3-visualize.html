@@ -11,7 +11,7 @@
             integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
             crossorigin="anonymous"></script>
 
-    <link href="environ.css" rel="stylesheet">
+    <link href="../environ.css" rel="stylesheet">
 </head>
 <body>
 <div id="environ"></div>
@@ -22,9 +22,11 @@
     <input type="button" value="<< Slower" id="slower">
     <input type="button" value="Faster >>" id="faster">
     |
-    <input type="text" value="Epoc = 2">
+    <input type="text" value="Epoc = 1">
     <input type="button" value="Jump Back" id="jump_back">
     <input type="button" value="Jump Ahead" id="jump_ahead">
+    |
+    <input type="button" value="Be the robot" id="participate">
     <input type="button" value="Visualize" id="visualize">
 </div>
 <p>
@@ -32,30 +34,23 @@
 </p>
 </body>
 <footer>
-    <script src="common.js"></script>
-    <script src="environ.js"></script>
-    <script src="agent.js"></script>
-    <script src="q.js"></script>
-    <script src="policy.js"></script>
-    <script src="visualization.js"></script>
+    <script src="../common.js"></script>
+    <script src="../environ.js"></script>
+    <script src="../agent.js"></script>
+    <script src="../q.js"></script>
+    <script src="../policy.js"></script>
+    <script src="../visualization.js"></script>
     <script>
         render_environ(environ)
         init_q('partial')
-        // visualize_q()
-        init_agent()
+        agent.pos.x=28
+        agent.pos.y=10
         render_agent()
-        $('#jump_back').click(function(){
-            location.href='step2.html'
-        })
-        $('#jump_ahead').click(function(){
-            location.href='step5.html'
-        })
-        timer = setInterval(q_learning_policy, 80)
         $('#start').click(function () {
             timer = setInterval(q_learning_policy, 80)
         })
-        $('#stop').click(function () {
-            clearInterval(timer)
+        $('#jump_ahead').click(function(){
+            location.href='step4.html'
         })
     </script>
 </footer>
