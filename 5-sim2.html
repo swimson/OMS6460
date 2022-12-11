@@ -30,7 +30,6 @@
                 <li class="breadcrumb-item "><a href="3-sim1.html">Simulation #1</a></li>
                 <li class="breadcrumb-item"><a href="4-deeper-dive.html">Deeper Dive</a></li>
                 <li class="breadcrumb-item active"><a href="5-sim2.html">Simulation #2</a></li>
-                <li class="breadcrumb-item"><a href="6-debrief.html">Debrief Video</a></li>
             </ol>
         </nav>
     </div>
@@ -64,64 +63,72 @@
                 <h6><b>Epoch</b>: <span id="agent_epoch">1</span></h6>
                 <h6><b>Step</b>: <span id="agent_step">1</span></h6>
                 <h6><b>Position</b>: <span id="agent_pos"></span></h6>
-                <h6><b>Movement Rule</b>: Move towards the direction with the highest Q score.</h6>
-                <br/><br/>
-                <h6>Possible actions and associated Q scores:</h6><br/>
-                <table>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td id="q_action_N">
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>
-                            <input type="button" value="Move &#8593" id="agent_action_N">
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td id="q_action_W"></td>
-                        <td></td>
-                        <td id="q_action_E"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="button" value="Move &#8592" id="agent_action_W">
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>
-                            <input type="button" value="Move &#8594" id="agent_action_E">
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>
-                            <input type="button" value="Move &#8595" id="agent_action_S">
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td id="q_action_S">
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </table>
+                <h6><b>Randomness</b>: <span id="agent_randomness"></span></h6>
+                <div id="agent-perspective-on-policy">
+                    <h6><b>Movement Rule</b>: Move towards the direction with the highest Q score.</h6>
+                    <br/><br/>
+                    <h6>Possible actions and associated Q scores:</h6><br/>
+                    <table>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td id="q_action_N">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input type="button" value="Move &#8593" id="agent_action_N">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td id="q_action_W"></td>
+                            <td></td>
+                            <td id="q_action_E"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="button" value="Move &#8592" id="agent_action_W">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input type="button" value="Move &#8594" id="agent_action_E">
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>
+                                <input type="button" value="Move &#8595" id="agent_action_S">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td id="q_action_S">
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="agent-perspective-off-policy" style="display:none">
+                    <a href="javascript:void(0)" class="btn btn-success btn-lg active" role="button" aria-pressed="true"
+                       id="agent_perspective_random_action"><i class="bi bi-fan"></i> Pick random action</a>
+                </div>
+
             </div>
             <div class="col-4">
                 <svg version="1.1" id="agent_view_icon" xmlns="http://www.w3.org/2000/svg"
