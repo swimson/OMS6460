@@ -42,8 +42,8 @@
             <input type="button" value="Faster >>" id="control_faster">
             |
             <input type="text" value="" id="control_epoch" readonly>
-            <input type="button" value="Jump Back" id="control_jump_back">
-            <input type="button" value="Jump Ahead" id="control_jump_ahead">
+            <input type="button" value="Jump Back Epochs" id="control_jump_back">
+            <input type="button" value="Jump Ahead Epochs" id="control_jump_ahead">
             |
             <input type="checkbox" id="control_visualization"> Visualize Q
         </div>
@@ -197,6 +197,7 @@
 
 </body>
 <footer>
+    <script src="scenarios/environ1.js"></script>
     <script src="common.js"></script>
     <script src="environ.js"></script>
     <script src="agent.js"></script>
@@ -206,11 +207,8 @@
     <script src="controls.js"></script>
     <script src="agent_view.js"></script>
     <script>
-        agent.save_q = false
-        agent.timer_interval = 200
         render_environ(environ)
         init_q('training1')
-        // visualize_q()
         init_agent()
         render_agent()
         init_controls()

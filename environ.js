@@ -201,7 +201,7 @@ let environ = {
         flag: 1000000000
     }
 }
-environ2 = environ
+environ2 = JSON.parse(JSON.stringify(environ))
 environ2['objects'] = [
     // flags
     {x: 7, y: 9,  icon: 'flag', passable: true, goal: true},
@@ -410,21 +410,21 @@ function update_environ(x, y, icon) {
     }
 }
 
-function render_environ() {
-    if(environ.render === false){
+function render_environ(configured_environ) {
+    if(configured_environ.render === false){
         return
     }
     let html = '<table>'
-    for (let y = environ.height; y > 0; y--) {
+    for (let y = configured_environ.height; y > 0; y--) {
         html = html + '<tr>'
-        for (let x = 1; x <= environ.width; x++) {
+        for (let x = 1; x <= configured_environ.width; x++) {
             html = html + '<td id="' + get_cell_id(x, y) + '" class="env-cell"></td>'
         }
         html = html + '</tr>'
     }
     $('#environ').html(html)
-    environ.objects.forEach(item => {
-        $('#' + get_cell_id(item.x, item.y)).html(environ.icons[item.icon])
+    configured_environ.objects.forEach(item => {
+        $('#' + get_cell_id(item.x, item.y)).html(configured_environ.icons[item.icon])
         $('#' + get_cell_id(item.x, item.y) + ' svg').addClass('env-obj').addClass('env-obj-' + item.icon)
     });
 }

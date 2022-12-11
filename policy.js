@@ -66,14 +66,16 @@ function save_policy_state() {
         window.localStorage.setItem('q_learning', Q_json)
         window.localStorage.setItem('q_learning_epoch', epoch)
 
-        if (epoch < 5) {
-            window.localStorage.setItem('q_learning_' + epoch, Q_json)
-        }
-        if (epoch < 1000 && epoch % 100 === 0) {
-            window.localStorage.setItem('q_learning_' + epoch, Q_json)
-        }
-        if (epoch > 1000 && epoch % 1000 === 0) {
-            window.localStorage.setItem('q_learning_' + epoch, Q_json)
+        if(agent.save_q_epochs === true){
+            if (epoch < 5) {
+                window.localStorage.setItem('q_learning_' + epoch, Q_json)
+            }
+            if (epoch < 1000 && epoch % 100 === 0) {
+                window.localStorage.setItem('q_learning_' + epoch, Q_json)
+            }
+            if (epoch > 1000 && epoch % 1000 === 0) {
+                window.localStorage.setItem('q_learning_' + epoch, Q_json)
+            }
         }
     }
 }
