@@ -14,7 +14,6 @@
     <link href="common.css" rel="stylesheet">
     <link href="environ.css" rel="stylesheet">
     <link href="agent_view.css" rel="stylesheet">
-    <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=courier">
 </head>
 <body>
 <div class="container">
@@ -197,6 +196,14 @@
 
 </body>
 <footer>
+    <script>
+        let local_storage_environ = localStorage.getItem('local_storage_environ')
+        if (parseInt(local_storage_environ) === 2) {
+            localStorage.removeItem('q_learning_epoch')
+            localStorage.removeItem('q_learning')
+        }
+        localStorage.setItem('local_storage_environ', 1)
+    </script>
     <script src="scenarios/environ1.js"></script>
     <script src="common.js"></script>
     <script src="environ.js"></script>
@@ -207,6 +214,7 @@
     <script src="controls.js"></script>
     <script src="agent_view.js"></script>
     <script>
+        localStorage.setItem('environ', 1)
         render_environ(environ)
         init_q('training1')
         init_agent()
