@@ -65,13 +65,17 @@ function stop_running(){
     render_controls()
 }
 
+function start_running(){
+    controlState.running = true
+    render_controls()
+}
+
 $('#control_stop').click(function () {
     stop_running()
 })
 
 $('#control_start').click(function () {
-    controlState.running = true
-    render_controls()
+    start_running()
 })
 
 $('#control_slower').click(function () {
@@ -108,12 +112,4 @@ $('#control_visualization').click(function(){
     setTimeout(() => {
         location.reload()
     }, 200)
-})
-
-$('#see_robot_perspective').click(function(){
-    stop_running()
-    $('#environ-container').hide()
-    $('#agent_perspective').show()
-    $('.hist_seg').remove()
-    init_agent_perspective()
 })

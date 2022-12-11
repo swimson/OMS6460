@@ -13,6 +13,7 @@
 
     <link href="common.css" rel="stylesheet">
     <link href="environ.css" rel="stylesheet">
+    <link href="agent_view.css" rel="stylesheet">
     <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=courier">
 </head>
 <body>
@@ -58,11 +59,12 @@
             <div id="agent_view" class="col-3">
                 <br/>
                 <h3>AGENT PERPECTIVE</h3>
-                <h6>Epoch: <span id="agent_epoch">1</span></h6>
-                <h6>Step: <span id="agent_step">1</span></h6>
-                <h6>Position: <span id="agent_pos"></span></h6>
+                <h6><b>Epoch</b>: <span id="agent_epoch">1</span></h6>
+                <h6><b>Step</b>: <span id="agent_step">1</span></h6>
+                <h6><b>Position</b>: <span id="agent_pos"></span></h6>
+                <h6><b>Movement Rule</b>: Move towards the direction with the highest Q score.</h6>
                 <br/><br/>
-                <h6>Quality scores for position:</h6><br/>
+                <h6>Possible actions and associated Q scores:</h6><br/>
                 <table>
                     <tr>
                         <td>&nbsp;</td>
@@ -82,7 +84,15 @@
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
+                        <td></td>
                         <td id="q_action_W"></td>
+                        <td></td>
+                        <td id="q_action_E"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
                         <td>
                             <input type="button" value="Move &#8592" id="agent_action_W">
                         </td>
@@ -90,7 +100,7 @@
                         <td>
                             <input type="button" value="Move &#8594" id="agent_action_E">
                         </td>
-                        <td id="q_action_E"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -112,7 +122,7 @@
                 </table>
             </div>
             <div class="col-4">
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                <svg version="1.1" id="agent_view_icon" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;"
                      xml:space="preserve">
@@ -170,10 +180,14 @@
 </g>
 
 </svg>
+                <br/>
+                <br/>
+                <br/>
+                <a href="javascript:void(0)" class="btn btn-warning btn-lg active" role="button" aria-pressed="true"
+                   id="see_environ_perspective"><i class="bi bi-arrow-up-left-square"></i> Jump out of robot perspective</a>
             </div>
-            <div class="col-5">
-                <div id="agent_thoughts">
-                </div>
+            <div class="col-4">
+                <div id="agent_thoughts">&nbsp;</div>
             </div>
         </div>
 
@@ -190,7 +204,7 @@
     <script src="policy.js"></script>
     <script src="visualization.js"></script>
     <script src="controls.js"></script>
-    <script src="agent_perspective.js"></script>
+    <script src="agent_view.js"></script>
     <script>
         agent.save_q = false
         agent.timer_interval = 200

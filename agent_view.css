@@ -18,28 +18,28 @@
 
 .not_best_action{
     color: lightgrey;
-    font-size: 20px;
-}
-
-#agent_view_history{
-    resize: vertical;
-    width: 500px;
-    height: 200px;
-    margin:20px;
-}
-
-body{
-    padding: 50px;
-}
-
-#reward_received{
-    margin-top: 300px;
-}
-
-#reward_explanation{
-    color: #bb1111;
+    font-size: 15px;
 }
 
 #agent_view_visualize{
     display:none;
+}
+
+#agent_thoughts{
+    font-family: "courier", sans-serif;
+    font-size: 20px;
+    margin-left: -100px;
+    color: white;
+    background: black;
+    padding: 10px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    text-transform: uppercase;
+}
+
+.agent_action_chosen {
+    background: green;
+    color: white;
+    padding: 5px;
 }
