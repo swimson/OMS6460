@@ -5,7 +5,7 @@ function random_motion_policy() {
 function q_learning_policy() {
     let prev_state = get_state(agent.pos.x, agent.pos.y)
     let action = choose_best_action(prev_state)['action']
-    if (agent.random === true) {
+    if (agent.random_action === true) {
         let epoch = window.localStorage.getItem('q_learning_epoch')
         if (epoch == null) {
             epoch = 1
@@ -49,9 +49,9 @@ function choose_best_action(state) {
 function get_epoch(){
     let epoch = window.localStorage.getItem('q_learning_epoch')
     if (epoch == null) {
-        epoch = 1
+        epoch = 0
     }
-    epoch = parseInt(epoch) + 1
+    epoch = parseInt(epoch)
     return epoch
 }
 

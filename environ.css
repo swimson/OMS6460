@@ -70,7 +70,7 @@
 }
 
 body {
-    overflow-y: hidden;
+    margin-bottom: 0px;
 }
 
 #controls{
