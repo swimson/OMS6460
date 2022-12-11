@@ -11,7 +11,7 @@
             integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
             crossorigin="anonymous"></script>
 
-    <link href="environ.css" rel="stylesheet">
+    <link href="common.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -19,42 +19,94 @@
         <h1>
             OMS6460
         </h1>
-        <h3>Participatory Simulation</h3>
+        <h3>Teacher View</h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-<!--                <li class="breadcrumb-item active"><a href="2-intro.html">Intro</a></li>-->
-                <!--                <li class="breadcrumb-item"><a href="1-pre-assessment.html">Pre-Assessment</a></li>-->
-                <!--                <li class="breadcrumb-item active"><a href="3-sim1.html">Simulation #1</a></li>-->
-                <!--                <li class="breadcrumb-item"><a href="4-deeper-dive.html">Deeper Dive</a></li>-->
-                <!--                <li class="breadcrumb-item"><a href="5-sim2.html">Simulation #2</a></li>-->
-                <!--                <li class="breadcrumb-item"><a href="6-debrief.html">Debrief</a></li>-->
-                <!--                <li class="breadcrumb-item"><a href="7-post-assessment.html">Post-Assessment</a></li>-->
+                <li class="breadcrumb-item"><a href="0-index.html">Home</a></li>
+                <li class="breadcrumb-item active"><a href="8-teacher.html">Teacher View</a></li>
             </ol>
         </nav>
     </div>
-    <div class="row">
-        <div class="col-6">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
+    <div class="row" id="no-student-responses">
+        <div class="col-9">
+            No student responses received yet.
         </div>
     </div>
-    <a href="1-pre-assessment.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Begin Project</a>
+    <div class="row" id="student-responses">
+        <div class="col-9">
+            Student Responses:
+            <select id="student-list"></select>
+            <hr/>
+            Sections:
+            <a href="#section-pre-assessment">Pre-Assessment</a> |
+            <a href="#section-intro-video">Intro Video</a> |
+            <a href="#section-deeper-dive-video">Deeper Dive Video</a> |
+            <a href="#section-debrief-video">Debrief Video</a> |
+            <a href="#post-assessment">Post Assessment</a>
+            <hr/>
+            <h5 id="section-pre-assessment">Pre-Assessment</h5>
+            <p><strong>QUESTION</strong>: What is Machine Learning or Artificial Intelligence?</p>
+            <p id="pre-submit-1" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: When a computer "learns", what does this mean?</p>
+            <p id="pre-submit-2" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: What role does a human teacher have in the learning process for a machine
+                learning algorithm?</p>
+            <p id="pre-submit-3" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: How flexible is machine learning when applied to new (novel) problems?</p>
+            <p id="pre-submit-4" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: In what ways do you learn similarly to a machine learning algorithm?</p>
+            <p id="pre-submit-5" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: In what ways do you learn differently from a machine learning algorithm?</p>
+            <p id="pre-submit-6" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: What are some aspects of your life that have been improved by machine
+                learning?</p>
+            <p id="pre-submit-7" class="prev-response"></p>
+            <hr/>
+
+            <h5 id="section-intro-video">Introduction Video</h5>
+            <p><strong>QUESTION</strong>: Who decides what the rewards and punishments should be? (What if the wrong
+                choices are made?)</p>
+            <p id="intro-form-1" class="prev-response"></p>
+            <hr/>
+
+            <h5 id="section-deeper-dive-video">Deeper Dive Video</h5>
+            <p><strong>QUESTION</strong>: What impact does a reward or punishment have on the Q-table?</p>
+            <p id="deep-dive-form-1" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: What would happen if we changed the environment but didn't introduce
+                randomness exploration?</p>
+            <p id="deep-dive-form-2" class="prev-response"></p>
+            <hr/>
+
+            <h5 id="section-debrief-video">Debrief</h5>
+            <p><strong>QUESTION</strong>: Why did the agent not find the second goal?</p>
+            <p id="debrief-form-1" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: What could have been done to help the agent find the second goal?</p>
+            <p id="debrief-form-2" class="prev-response"></p>
+            <hr/>
+
+            <h5 id="post-assessment">Post-Assessment</h5>
+            <p><strong>QUESTION</strong>: What is Machine Learning or Artificial Intelligence?</p>
+            <p id="post-submit-1" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: When a computer "learns", what does this mean?</p>
+            <p id="post-submit-2" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: What role does a human teacher have in the learning process for a machine
+                learning algorithm?</p>
+            <p id="post-submit-3" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: How flexible is machine learning when applied to new (novel) problems?</p>
+            <p id="post-submit-4" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: In what ways do you learn similarly to a machine learning algorithm?</p>
+            <p id="post-submit-5" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: In what ways do you learn differently from a machine learning algorithm?</p>
+            <p id="post-submit-6" class="prev-response"></p>
+            <p><strong>QUESTION</strong>: What are some aspects of your life that have been improved by machine
+                learning?</p>
+            <p id="post-submit-7" class="prev-response"></p>
+        </div>
+    </div>
 </div>
 
 </body>
 <footer>
+    <script src="teacher.js"></script>
 </footer>
 </html>

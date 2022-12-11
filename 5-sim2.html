@@ -32,24 +32,28 @@
             </ol>
         </nav>
     </div>
-    <div id="environ"></div>
-    <div id="controls">
-        <input type="button" value="Start" id="control_start">
-        <input type="button" value="Stop" id="control_stop">
+    <div id="environ-container">
+        <div id="environ"></div>
+        <div id="controls">
+            <input type="button" value="Start" id="control_start">
+            <input type="button" value="Stop" id="control_stop">
+            |
+            <input type="button" value="<< Slower" id="control_slower">
+            <input type="button" value="Faster >>" id="control_faster">
+            |
+            <input type="text" value="" id="control_epoch" readonly>
+            <input type="button" value="Jump Back" id="control_jump_back">
+            <input type="button" value="Jump Ahead" id="control_jump_ahead">
+            |
+            <input type="button" value="Be the robot" id="control_participate">
+            <input type="checkbox" id="control_visualization"> Visualize Q
+        </div>
+        <a href="" class="btn btn-warning btn-lg active" role="button" aria-pressed="true"><i class="bi bi-robot"></i>
+            Jump into robot perspective</a>
         |
-        <input type="button" value="<< Slower" id="control_slower">
-        <input type="button" value="Faster >>" id="control_faster">
-        |
-        <input type="text" value="" id="control_epoch" readonly>
-        <input type="button" value="Jump Back" id="control_jump_back">
-        <input type="button" value="Jump Ahead" id="control_jump_ahead">
-        |
-        <input type="button" value="Be the robot" id="control_participate">
-        <input type="checkbox" id="control_visualization"> Visualize Q
+        <a href="6-debrief.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Next: Watch
+            debrief video</a>
     </div>
-    <a href="6-debrief.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Next: Watch debrief video</a>
-
-
 </div>
 
 

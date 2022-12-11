@@ -70,9 +70,15 @@
 }
 
 body {
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
 }
 
 #controls{
     margin:20px;
+}
+
+#agent_thoughts{
+    font-family: "courier", sans-serif;
+    font-size: 24px;
+    margin-left:-100px;
 }

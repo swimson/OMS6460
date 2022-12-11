@@ -58,11 +58,15 @@ function get_current_speed_index() {
     return currentSpeedIndex
 }
 
-$('#control_stop').click(function () {
+function stop_running(){
     controlState.running = false
     clearInterval(agent.timer)
     agent.timer = null
     render_controls()
+}
+
+$('#control_stop').click(function () {
+    stop_running()
 })
 
 $('#control_start').click(function () {
@@ -104,4 +108,12 @@ $('#control_visualization').click(function(){
     setTimeout(() => {
         location.reload()
     }, 200)
+})
+
+$('#see_robot_perspective').click(function(){
+    stop_running()
+    $('#environ-container').hide()
+    $('#agent_perspective').show()
+    $('.hist_seg').remove()
+    init_agent_perspective()
 })
