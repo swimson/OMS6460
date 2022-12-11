@@ -1,0 +1,82 @@
+<html>
+<head>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <!-- Jquery -->
+    <script
+            src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+            crossorigin="anonymous"></script>
+
+    <link href="common.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div id="navbar">
+        <h1>
+            OMS6460
+        </h1>
+        <h3>Post-Assessment</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="0-index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="1-pre-assessment.html">Pre-Assessment</a></li>
+                <li class="breadcrumb-item "><a href="2-intro.html">Intro Video</a></li>
+                <li class="breadcrumb-item "><a href="3-sim1.html">Simulation #1</a></li>
+                <li class="breadcrumb-item"><a href="4-deeper-dive.html">Deeper Dive</a></li>
+                <li class="breadcrumb-item"><a href="5-sim2.html">Simulation #2</a></li>
+                <li class="breadcrumb-item"><a href="6-debrief.html">Debrief Video</a></li>
+                <li class="breadcrumb-item active"><a href="7-post-assessment.html">Post-Assessment</a></li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <br/>
+            <p>This post-assessment covers the same questions at the beginning of this project.</p>
+            <p>Feel free to expand on your previous responses or correct them with information you learned during this project on reinforcement learning.</p>
+            <br/>
+            <form action="0-index.html" id="post-assessment-form">
+                <h5><strong>QUESTION</strong>: What is Machine Learning or Artificial Intelligence? </h5>
+                <strong>Previous Response: </strong><span class="prev-response" id="pre-submit-1-response"></span>
+                <textarea cols="90" rows="3" id="post-submit-1"></textarea>
+                <br/><br/>
+                <h5><strong>QUESTION</strong>: When a computer "learns? what does this mean? </h5>
+                <strong>Previous Response: </strong><span class="prev-response" id="pre-submit-2-response"></span>
+                <textarea cols="90" rows="3" id="post-submit-2"></textarea>
+                <br/><br/>
+                <h5><strong>QUESTION</strong>: What role does a human teacher have in the learning process for a machine learning algorithm? </h5>
+                <strong>Previous Response: </strong><span class="prev-response" id="pre-submit-3-response"></span>
+                <textarea cols="90" rows="3" id="post-submit-3"></textarea>
+                <br/><br/>
+                <h5><strong>QUESTION</strong>: How flexible is machine learning when applied to new (novel) problems? </h5>
+                <strong>Previous Response: </strong><span class="prev-response" id="pre-submit-4-response"></span>
+                <textarea cols="90" rows="3" id="post-submit-4"></textarea>
+                <br/><br/>
+                <h5><strong>QUESTION</strong>: In what ways do you learn similarly to a machine learning algorithm? </h5>
+                <strong>Previous Response: </strong><span class="prev-response" id="pre-submit-5-response"></span>
+                <textarea cols="90" rows="3" id="post-submit-5"></textarea>
+                <br/><br/>
+                <h5><strong>QUESTION</strong>: In what ways do you learn differently from a machine learning algorithm? </h5>
+                <strong>Previous Response: </strong><span class="prev-response" id="pre-submit-6-response"></span>
+                <textarea cols="90" rows="3" id="post-submit-6"></textarea>
+                <br/><br/>
+                <h5><strong>QUESTION</strong>: What are some aspects of your life that have been improved by machine learning? </h5>
+                <strong>Previous Response: </strong><span class="prev-response" id="pre-submit-7-response"></span>
+                <textarea cols="90" rows="3" id="post-submit-7"></textarea>
+                <br/>
+                <br/>
+                <input type="submit" class="btn btn-primary btn-lg active" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+<footer>
+    <script src="forms.js"></script>
+</footer>
+</html>

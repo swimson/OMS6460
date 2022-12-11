@@ -1,6 +1,7 @@
 let agent = {
     random_action: true,
     random_action_pct: .5,
+    random_action_cutoff: 5000,
     render: true,
     render_hist: true,
     refresh_find_goal: true,

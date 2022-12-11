@@ -1,0 +1,66 @@
+<html>
+<head>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <!-- Jquery -->
+    <script
+            src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+            crossorigin="anonymous"></script>
+
+    <link href="common.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div id="navbar">
+        <h1>
+            OMS6460
+        </h1>
+        <h3>Deeper Dive Video</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="0-index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="1-pre-assessment.html">Pre-Assessment</a></li>
+                <li class="breadcrumb-item "><a href="2-intro.html">Intro Video</a></li>
+                <li class="breadcrumb-item"><a href="3-sim1.html">Simulation #1</a></li>
+                <li class="breadcrumb-item active"><a href="4-deeper-dive.html">Deeper Dive</a></li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <br/>
+            <p>In this deep dive video the Q-Learning algorithm is explained in detail.  Additionally the concept of random exploration is discussed.  Next, the simulation will be modified by adding an additional goal and removing some of the walls.
+            </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/T-pu1wuhXCQ"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div class="col-6">
+            <form id="deep-dive-form" action="5-sim2.html">
+                <h5><strong>QUESTION</strong>: What impact does a reward or punishment have on the Q-table?</h5>
+                <textarea cols="90" rows="3" id="deep-dive-form-1"></textarea>
+                <br/><br/>
+                <h5><strong>QUESTION</strong>: What would happen if we changed the environment but didn't introduce randomness exploration?</h5>
+                <textarea cols="90" rows="3" id="deep-dive-form-2"></textarea>
+                <br/><br/>
+                <input type="submit" class="btn btn-primary btn-lg active" value="Next: Run Simulation #2">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+<footer>
+    <script src="forms.js"></script>
+</footer>
+</html>

@@ -1,0 +1,24 @@
+body {
+    margin-bottom: 200px;
+}
+
+#controls{
+    margin:20px;
+}
+
+.breadcrumb-item a{
+    color: grey;
+}
+
+.breadcrumb-item.active a{
+    color: darkred;
+}
+
+#navbar{
+    padding-top: 20px;
+}
+
+.prev-response{
+    font-style: italic;
+    color: darkred;
+}

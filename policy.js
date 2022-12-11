@@ -10,8 +10,8 @@ function q_learning_policy() {
         if (epoch == null) {
             epoch = 1
         }
-        let r = (1 - epoch / 5000) * .5
-        if (epoch <= 5000 && Math.random() < r) {
+        let r = (1 - epoch / agent.random_action_cutoff) * .5
+        if (epoch <= agent.random_action_cutoff && Math.random() < r) {
             if (epoch % 20 === 0) {
                 console.log(r)
             }
